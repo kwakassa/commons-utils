@@ -1,0 +1,26 @@
+usar o comando: "mvn clean instal:install-file" para incluir a lib do javafx incluso no projeto
+
+Tag para colocar no POM para tentativa de instalar o jfxrt no m2
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5</version>
+				<configuration>
+					<groupId>javafx</groupId>
+					<artifactId>jfxrt</artifactId>
+					<version>1.8</version>
+					<packaging>jar</packaging>
+					<file>${basedir}/lib/jfxrt.jar</file>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+
+					</execution>
+				</executions>
+			</plugin>
